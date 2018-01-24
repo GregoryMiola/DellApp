@@ -1,0 +1,63 @@
+﻿@model DellApp.Models.UserResults
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login - DellApp</title>
+</head>
+<body>
+
+    @section Scripts {
+        <script>
+            function clearForm() {
+                alert("All good");
+            }
+        </script>
+    }
+
+    <div>
+
+        @using (Html.BeginForm("GetCustomer", "Home"))
+        {
+            <div class="container">
+                <div class="panel panel-default">
+
+                    <table class="agendas-table" id="agendas" border="0">
+                        <tbody>
+                            <tr>
+                                <td class="col-xs-1 col-sm-1"><strong>Name:</strong></td>
+                                <td><input type="text" name="name" id="name" class="form-control col-xs-5 col-sm-5" /></td>
+                            </tr>
+                            <tr>
+                                <td class="col-xs-1 col-sm-1"><strong>Gender:</strong></td>
+                                <td>
+                                    <select name="genderId" id="genderId" class="form-control col-xs-5 col-sm-5">
+                                        <option value="1">Masculine</option>
+                                        <option value="2">Feminine</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr align="center">
+                                <td align="left">
+                                    <input type="submit" name="btnSearch" id="btnSearch" value="Search" class="btn" />
+                                    &nbsp;&nbsp;
+                                    <input type="button" name="btnClear" id="btnClear" value="Clear Fields" class="btn" onclick="clearForm();" />
+                                    @*<input style="margin-top:0px;" type="button" name="btnPesquisar" id="btnPesquisar" value="Pesquisar" class="btn" onclick="updatePartialViewAg('@(ViewContext.RouteData.Values["chave"] == null ? Request.QueryString["chave"].ToString() : ViewContext.RouteData.Values["chave"].ToString())')" />*@
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        }
+
+    </div>
+</body>
+</html>
